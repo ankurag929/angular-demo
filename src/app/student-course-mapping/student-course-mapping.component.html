@@ -1,0 +1,44 @@
+<form #mappingForm="ngForm" (submit)="onSubmit(mappingForm)">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="student">Student:</label>
+        <select name="student" id="student" class="form-control" ngModel>
+          <option
+            *ngFor="let student of studentsList"
+            value="{{ student._id }}"
+            >{{ student.name }}</option
+          >
+        </select>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="course">Course:</label>
+        <select name="course" id="course" class="form-control" ngModel>
+          <option *ngFor="let course of coursesList" value="{{ course._id }}">{{
+            course.name
+          }}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <button class="btn btn-success">Admit Student</button>
+  </div>
+</form>
+<br />
+<table class="table">
+  <thead>
+    <tr>
+      <th>Student</th>
+      <th>Course</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let mapping of mappingList">
+      <td>{{ mapping.student.name }}</td>
+      <td>{{ mapping.course.name }}</td>
+    </tr>
+  </tbody>
+</table>

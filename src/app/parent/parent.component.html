@@ -1,0 +1,7 @@
+<p>parent works!</p>
+<br />
+{{ name }}
+<app-child
+  [name]="name"
+  (childButtonClick)="onChildButtonClick($event)"
+></app-child>

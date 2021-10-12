@@ -1,0 +1,95 @@
+<!-- <input
+  type="text"
+  name="name"
+  placeholder="Student Name"
+  [(ngModel)]="studentName"
+/>
+<br />
+<input
+  type="number"
+  name="rollNo"
+  placeholder="Student Roll Number"
+  [(ngModel)]="studentRollNo"
+/>
+<br />
+<button (click)="onSubmit()">Submit</button> -->
+<div class="container">
+  <form #myForm="ngForm" (submit)="onFormSubmit(myForm)">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="name"><strong>Name</strong></label>
+          <input
+            type="text"
+            name="name"
+            class="form-control"
+            required
+            ngModel
+          />
+          <span class="my-error">Name is required</span>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="city">City</label>
+          <input
+            type="text"
+            name="city"
+            class="form-control"
+            required
+            ngModel
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col md-6">
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input type="number" name="age" class="form-control" ngModel />
+        </div>
+      </div>
+      <div class="col md-6">
+        <div class="form-group">
+          <label for="mobile">Mobile</label>
+          <input type="text" name="mobile" class="form-control" ngModel />
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-success" type="submit">Submit</button>
+  </form>
+</div>
+<br />
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>City</th>
+      <th>Age</th>
+      <th>Mobile</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of studentsList; let i=index">
+      <td *ngIf="editModeIndex!==i">{{ student.name }}</td>
+      <td *ngIf="editModeIndex===i">
+        <input type="text" class="form-control" [(ngModel)]="student.name">
+      </td>
+      <td>{{ student.city }}</td>
+      <td>{{ student.age }}</td>
+      <td>{{ student.mobile }}</td>
+      <td *ngIf="editModeIndex!==i">
+        <button class="btn btn-danger m-2" (click)="onDelete(student._id, i)">
+          Delete
+        </button>
+        
+        <button class="btn btn-primary" (click)="onEdit(student._id, i)">Edit</button>
+      </td>
+      <td *ngIf="editModeIndex===i">
+        <button class="btn btn-success m-2" (click)="onUpdate(student._id, student.name)">Update</button>
+        <button class="btn btn-info" (click)="onCancel()">Cancel</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

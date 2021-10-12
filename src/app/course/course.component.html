@@ -1,0 +1,58 @@
+<div class="text-center">
+  <h2>Course Form</h2>
+</div>
+<form [formGroup]="myFormGroup" (ngSubmit)="onFormSubmit(myFormGroup)">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          name="name"
+          class="form-control"
+          formControlName="name"
+        />
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="fees">Fees</label>
+        <input
+          type="text"
+          name="fees"
+          class="form-control"
+          formControlName="fees"
+        />
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="duration">Duration</label>
+        <input
+          type="text"
+          name="duration"
+          class="form-control"
+          formControlName="duration"
+        />
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-success" type="submit">Submit</button>
+</form>
+<br />
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Fees</th>
+      <th>Duration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let course of courseList">
+      <td>{{ course.name }}</td>
+      <td>{{ course.fees }}</td>
+      <td>{{ course.duration }}</td>
+    </tr>
+  </tbody>
+</table>
