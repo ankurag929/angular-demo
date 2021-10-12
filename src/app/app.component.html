@@ -1,0 +1,108 @@
+<!-- Hello From the Component
+<app-student disabled="true"></app-student>
+<app-student-new></app-student-new>
+<app-my-component></app-my-component> -->
+<!-- <div *ngIf="showContent">
+  This is my Content
+</div>
+<div *ngIf="!showContent">
+  This is hidden
+</div>
+<ol type="a">
+  <li *ngFor="let person of personArr; let i = index">
+    {{ i + " " + person }}
+  </li>
+</ol>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>SN</th>
+      <th>Name</th>
+      <th>Roll No</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of studentArr; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td [ngStyle]="{ color: (i + 1) % 2 === 1 ? 'Red' : 'Yellow' }">
+        {{ student.name }}
+      </td>
+      <td
+        [ngClass]="{
+          'my-odd': (i + 1) % 2 === 1,
+          'my-even': (i + 1) % 2 === 0
+        }"
+      >
+        {{ student.rollNo }}
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div
+  [ngStyle]="{ color: !showContent ? 'red' : 'yellow', 'font-family': 'arial' }"
+>
+  This is my template content
+</div>
+
+<div [ngClass]="{ 'my-div': showContent }">
+  This is my class content
+</div> -->
+<!-- <app-parent></app-parent> -->
+<!-- <app-student-form
+  (onStudentSubmit)="onStudentSubmit($event)"
+></app-student-form> -->
+<!-- <app-student-list
+  [students]="studentArr"
+  (onStudentDelete)="onStudentDelete($event)"
+></app-student-list> -->
+<!-- <app-course></app-course> -->
+<div class="container">
+  <div class="text-center jumbotron">
+    <h2 appMyDirective>
+      {{ "Student Management System" }}
+    </h2>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" appMyDirective>{{
+      "Student Management System"
+    }}</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item" *ngIf="isUserLoggedIn()">
+          <a class="nav-link" routerLink="/student">Student</a>
+        </li>
+        <li class="nav-item" *ngIf="isUserLoggedIn()">
+          <a class="nav-link" routerLink="/course">Course</a>
+        </li>
+        <li class="nav-item" *ngIf="isUserLoggedIn()">
+          <a class="nav-link" routerLink="/mapping">Admit Student</a>
+        </li>
+        <li class="nav-item" *ngIf="!isUserLoggedIn()">
+          <a class="nav-link" routerLink="/signup">Sign Up</a>
+        </li>
+        <li class="nav-item" *ngIf="!isUserLoggedIn()">
+          <a class="nav-link" routerLink="/login">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="isUserLoggedIn()">
+          <a class="nav-link" (click)="onLogout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <br />
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Roll Number</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of students">
+      <td>{{ student.name }}</td>
+      <td>{{ student.rollNo }}</td>
+      <td>
+        <button (click)="onDelete(student.rollNo)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
